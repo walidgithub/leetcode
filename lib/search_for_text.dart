@@ -8,7 +8,8 @@ void main() {
   // print(prepareObject);
   // print(finalObject);
 }
-List<String> result = [];
+List<String> prepareData1 = [];
+List<String> prepareData2 = [];
 List<List<String>> resultData1 = [];
 List<List<String>> resultData2 = [];
 
@@ -261,18 +262,18 @@ List<List<String>> separateList1(List data1) {
       int end = match.end;
       String textWithoutBrackets = data1[index].substring(lastIndex, start).trim();
       if (textWithoutBrackets.isNotEmpty) {
-        result.add(textWithoutBrackets);
+        prepareData1.add(textWithoutBrackets);
       }
-      result.add(match.group(0)!);
+      prepareData1.add(match.group(0)!);
       lastIndex = end;
     }
 
     String lastPart = data1[index].substring(lastIndex).trim();
     if (lastPart.isNotEmpty) {
-      result.add(lastPart);
+      prepareData1.add(lastPart);
     }
-    resultData1.add(result);
-    result = [];
+    resultData1.add(prepareData1);
+    prepareData1 = [];
   }
   return resultData1;
 }
@@ -289,18 +290,18 @@ List<List<String>> separateList2(List data2) {
       int end = match.end;
       String textWithoutBrackets = data2[index].substring(lastIndex, start).trim();
       if (textWithoutBrackets.isNotEmpty) {
-        result.add(textWithoutBrackets);
+        prepareData2.add(textWithoutBrackets);
       }
-      result.add(match.group(0)!);
+      prepareData2.add(match.group(0)!);
       lastIndex = end;
     }
 
     String lastPart = data2[index].substring(lastIndex).trim();
     if (lastPart.isNotEmpty) {
-      result.add(lastPart);
+      prepareData2.add(lastPart);
     }
-    resultData2.add(result);
-    result = [];
+    resultData2.add(prepareData2);
+    prepareData2 = [];
   }
   return resultData2;
 }
